@@ -1,4 +1,8 @@
-## Installing Filestash with the Nomad orchestrator and behind nginx
+Installing Filestash with the Nomad orchestrator
+2020-05-24
+Technology
+
+## Installing Filestash with the Nomad orchestrator
 
 Filestash is a very low consumption app so if you are using a big-ish server it makes sense to run it together with other applications. Nomad is an easy way to orchestrate containers and applications in a single server without having to deal with the complexity of Kubernetes.
 
@@ -18,6 +22,23 @@ Then you will need to run the following services as Nomad jobs:
 * Fabiolb
 
 I am assuming a bare metal or dedicated server setup. I am running an Ubuntu OS but because Nomad runs with a single binary all Linux OS systems should be supported.
+
+### Nomad Web UI
+
+It is better to get started using the Nomad Web UI to run jobs as it is easier to get started this way.
+
+If you have installed Nomad correctly on your server you will find Nomad on localhost:4646 or yourip:4646. Make sure Nginx is not running otherwise you need to map Nomad web UI address to a Nginx location.
+
+Here is how the Nomad UI should look like.
+
+![nomad web ui](https://i.ibb.co/71C2GCJ/Capture.png)
+
+You can run all Nomad jobs below using the UI. Just click on the button `Run Job` in the top right corner.
+
+This is how the web UI looks like for running jobs. You paste the job and click `plan` (bottom left), then `run`.
+
+![nomad web ui jobs](https://i.ibb.co/XyytSdp/Capture.png)
+
 
 ### Getting familiar with Nomad, Consul and Fabio
 
@@ -79,9 +100,17 @@ job "fabio" {
 }
 ```
 
+### Using the web UI's
+
+If everything worked as expected you should be able to see the following ui's:
+
+* Nomad: localhost:4646
+* Consul: localhost:8500
+* Fabio: localhost:9998
+
 ### Setting up Filestash
 
-We will need 1 task inside 1 job and 1 task group. The 1 task is going to be `filestash`. We need to make sure we persiste filestash `/app/data` localy using volumes.
+We will need 1 task inside 1 job and 1 task group. The 1 task is going to be `filestash`. We need to make sure we persist filestash `/app/data` localy using volumes.
 
 ```
 job "filestash" {
