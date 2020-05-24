@@ -2,6 +2,7 @@ Installing Filestash with the Nomad orchestrator
 2020-05-24
 Technology
 
+
 Filestash is a very low consumption app so if you are using a big-ish server it makes sense to run it together with other applications. Nomad is an easy way to orchestrate containers and applications in a single server without having to deal with the complexity of Kubernetes.
 
 For this simpler use case Nomad is an alternative to docker-compose and docker swarm. Following this documentation it is possible to setup a fully production ready instance of Filestash with a battle tested orchestrator.
