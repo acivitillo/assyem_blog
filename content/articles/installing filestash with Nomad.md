@@ -185,9 +185,9 @@ service {
 
 In the above nomad job we have configured a volume for Filestash `"/app_storage/filestash/data:/app/data"`. The purpose of this volume is to persist the Filestash container data to the host OS.
 
-### Spinning up Filestash with nomad
+### Spinning up Filestash with nomad using the cli
 
-At this point all we need to do is:
+If you prefer using the cli, here is how you spin up a nomad job from the command line.
 
 `nomad job run filestash.nomad`
 
