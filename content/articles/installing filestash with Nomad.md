@@ -13,7 +13,6 @@ You will need the following software installs:
 
 * Nomad https://www.nomadproject.io/downloads/
 * Docker
-* Nginx
 
 Then you will need to run the following services as Nomad jobs:
 
